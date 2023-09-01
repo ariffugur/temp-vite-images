@@ -1,0 +1,31 @@
+import React from "react";
+import { useGlobalContext } from "./context";
+
+const SearchFrom = () => {
+  const { setSearchTerm } = useGlobalContext();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const searchValue = e.target.elements.search.value;
+    if (!searchValue) return;
+    setSearchTerm(searchValue);
+  };
+  return (
+    <section>
+      <h1 className="title">unsplash images</h1>
+      <form action="" className="search-form" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          className="form-input 
+        search-input"
+          name="search"
+          placeholder="guinea pig"
+        />
+        <button className="btn" type="submit">
+          search
+        </button>
+      </form>
+    </section>
+  );
+};
+
+export default SearchFrom;
